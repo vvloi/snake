@@ -3,17 +3,17 @@ project(snake)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(dto)
-include_directories(handler)
-include_directories(repository)
-include_directories(service)
+include_directories(archived/dto)
+include_directories(archived/handler)
+include_directories(archived/repository)
+include_directories(archived/service)
 
 add_executable(snake
     app/SnakeApplication.cpp
-    dto/Element.h
-    dto/Item.h
-    dto/Point.h
-    dto/Snake.h
-    handler/SnakeHandler.h
-    repository/SnakeRepository.h
-    service/SnakeHeadService.h)
+        archived/dto/Element.h
+        archived/dto/Item.h
+        archived/dto/Point.h
+        archived/dto/Snake.h
+        archived/handler/SnakeHandler.h
+        archived/repository/SnakeRepository.h
+        archived/service/SnakeHeadService.h)
