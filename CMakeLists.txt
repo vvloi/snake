@@ -9,7 +9,7 @@ include_directories(archived/repository)
 include_directories(archived/service)
 
 add_executable(snake
-    app/SnakeApplication.cpp
+        archived/app/SnakeApplication.cpp
         archived/dto/Element.h
         archived/dto/Item.h
         archived/dto/Point.h
