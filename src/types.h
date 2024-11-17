@@ -93,5 +93,28 @@ typedef struct
     time_t resetStd, resetVal, resetHid, resetSpeed, resetLife;
     int delay[6];
 } Timer;
+typedef struct
+{
+    int lives;
+    int score;
+    int hiscore;
+    int lifeAdded;
+    int lifeActive;
+    int speedActive;
+} Stats;
+
+typedef struct
+{
+    int rows;
+    int cols;
+} Window;
+
+typedef struct
+{
+    int left;
+    int right;
+    int top;
+    int bottom;
+} Border;
 
 #endif /* TYPES_H */
