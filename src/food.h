@@ -1,3 +1,5 @@
+#ifndef FOOD_H
+#define FOOD_H
 #define _CRT_SECURE_NO_WARNINGS
 #include "food.h"
 
@@ -173,3 +175,5 @@ void remove_food(Food *food, Eats *eats)
     else if (eats->ftype == hidden)
         food->hidCount = 0;
 }
+
+#endif // FOOD_H

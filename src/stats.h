@@ -2,6 +2,7 @@
 #define STATS_H
 
 #include "types.h"
+#include <windows.h>
 
 #define TOP_BORDER_OFFSET 2
 
@@ -17,5 +18,6 @@ void update_score(Stats *, Eats *);
 
 void display_modifier(Eats *);
 void hide_modifier(void);
+void wait_for_key_press(HANDLE);
 
 #endif /* STATS_H */
