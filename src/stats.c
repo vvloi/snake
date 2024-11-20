@@ -157,3 +157,22 @@ void hide_modifier(void)
     move_cursor(1, TOP_BORDER_OFFSET);
     printf("\t\t%s\t\t%s", "  ", "  ");
 }
+
+// wait until console input is in the signaled state
+void wait_for_key_press(HANDLE hstdIn)
+{
+    DWORD oldMode, mode;
+
+    if (!GetConsoleMode(hstdIn, &oldMode))
+        printf("Error getting console mode.");
+
+    mode = oldMode;
+    mode &= ~(ENABLE_MOUSE_INPUT | ENABLE_QUICK_EDIT_MODE);
+    if (!SetConsoleMode(hstdIn, mode))
+        printf("Error setting console mode.");
+
+    WaitForSingleObject(hstdIn, INFINITE);
+
+    if (!SetConsoleMode(hstdIn, oldMode))
+        printf("Error setting console mode.");
+}
