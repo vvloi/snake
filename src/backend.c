@@ -255,11 +255,11 @@ Direction get_next_move(Direction dir, Stats *stats)
                     case VK_DOWN:
                         if (dir != up) return down;
                         break;
-                    case VK_ESCAPE:
+                    case 'Q':
                         if (stats->hiscore > get_hiscore())
                             save_hiscore(stats);
                         break;
-                    case VK_SPACE:
+                    case 'P':
                         if (stats->hiscore > get_hiscore())
                             save_hiscore(stats);
                         game_paused();
@@ -274,7 +274,7 @@ Direction get_next_move(Direction dir, Stats *stats)
 // if the game was paused
 void game_paused(void)
 {
-    char *gamePaused[] = {"Game paused", "Press [space] to continue"};
+    char *gamePaused[] = {"Game paused", "Press [P] to continue"};
     DWORD eventsRead = 0;
     INPUT_RECORD buff;
 
@@ -301,16 +301,17 @@ void game_paused(void)
         if (!ReadConsoleInput(hstdIn, &buff, 1, &eventsRead))
             printf("Error reading console input.");
 
-        if (buff.EventType == KEY_EVENT && buff.Event.KeyEvent.bKeyDown)
+         if (buff.EventType == KEY_EVENT && buff.Event.KeyEvent.bKeyDown)
         {
-            if (buff.Event.KeyEvent.wVirtualKeyCode == VK_SPACE)
+            if (buff.Event.KeyEvent.wVirtualKeyCode == 'P'qqqq)
             {
                 disable_alt_screen();
                 return;
             }
         }
-        else if (buff.Event.KeyEvent.wVirtualKeyCode == VK_ESCAPE)
-        {
+        else if (buff.Event.KeyEvent.wVirtualKeyCode == 'Q')
+
+          p  {
             disable_alt_screen();
             clear_screen();
             clear_scrollback();
